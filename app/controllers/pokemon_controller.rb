@@ -25,6 +25,7 @@ class PokemonController < ApplicationController
 		if @pokemon.save
 			redirect_to current_trainer
 		else
+			flash[:error] = @pokemon.errors.full_messages.to_sentence
 			render 'new'
 		end
 
